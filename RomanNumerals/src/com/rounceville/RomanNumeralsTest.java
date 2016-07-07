@@ -2,11 +2,18 @@ package com.rounceville;
 
 import static org.junit.Assert.*;
 
+import java.text.ParseException;
+
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class RomanNumeralsTest {
 
+	@Rule
+	public final ExpectedException exception = ExpectedException.none();	
+	
 	RomanNumeralHelper rnh;
 
 	@Before
@@ -15,7 +22,7 @@ public class RomanNumeralsTest {
 	}
 	
 	@Test
-	public void testPrimitivesLetterToInt() {
+	public void testPrimitivesLetterToInt() throws Exception {
 		assertEquals(rnh.toInt("M"), 1000);
 		assertEquals(rnh.toInt("D"), 500);
 		assertEquals(rnh.toInt("C"), 100);
@@ -25,6 +32,43 @@ public class RomanNumeralsTest {
 		assertEquals(rnh.toInt("I"), 1);
 	}
 	
+	@Test
+	public void testTripleRepeats() throws ParseException {
+		assertEquals(rnh.toInt("III"),3);
+		assertEquals(rnh.toInt("XXX"),30);
+		assertEquals(rnh.toInt("CCC"),300);
+		assertEquals(rnh.toInt("MMM"),3000);
+	}
+	
+	@Test
+	public void testQuadrupleIIIIRepeatFails() throws ParseException {
+		exception.expect(ParseException.class);
+		assertNotEquals(rnh.toInt("IIII"),4);
+	}
+	
+	@Test
+	public void testQuadrupleXXXXRepeatFails() throws ParseException {
+		exception.expect(ParseException.class);
+		assertNotEquals(rnh.toInt("XXXX"),40);
+	}
+	
+	@Test
+	public void testQuadrupleCCCCRepeatFails() throws ParseException {
+		exception.expect(ParseException.class);
+		assertNotEquals(rnh.toInt("CCCC"),400);
+	}
+	
+	@Test
+	public void testQuadrupleMMMMRepeatFails() throws ParseException {
+		exception.expect(ParseException.class);
+		assertNotEquals(rnh.toInt("MMMM"),4000);
+	}
+
+	@Test
+	public void testQuadrupleMIIIIRepeatFails() throws ParseException {
+		exception.expect(ParseException.class);
+		assertNotEquals(rnh.toInt("MIIII"),1004);
+	}
 	
 
 }
