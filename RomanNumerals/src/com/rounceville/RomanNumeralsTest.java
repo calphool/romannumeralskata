@@ -103,4 +103,12 @@ public class RomanNumeralsTest {
 		assertEquals(rnh.toInt("CM"), 900);
 	}
 
+	@Test
+	public void testILandICandIDandIM() throws ParseException {
+		assertNotEquals(rnh.toInt("IL"), 49);
+		assertNotEquals(rnh.toInt("IC"), 99);
+		assertNotEquals(rnh.toInt("ID"), 499);
+		assertNotEquals(rnh.toInt("IM"), 999);
+	}
+
 }

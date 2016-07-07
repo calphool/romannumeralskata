@@ -18,13 +18,18 @@ public class RomanNumeralHelper {
 			int cVal = charToInt(inp.charAt(i));
 			if(i < inp.length() - 1) {
 				int cVal2 = charToInt(inp.charAt(i+1));
-				if(cVal != 5 && cVal != 50 && cVal != 500) {
-					if(cVal2 > cVal) {
-						iTotal += cVal2;
-						cVal = -cVal;
-						i++;
-					}
-				}
+				boolean bDoSubtraction = true;
+				if(cVal == 5 || cVal == 50 || cVal == 500)
+					bDoSubtraction = false;
+				if(cVal == 1 && cVal2 > 10)
+					bDoSubtraction = false;
+				if(cVal == 5 && cVal2 > 50)
+					bDoSubtraction = false;
+				if(bDoSubtraction && (cVal2 > cVal)) {
+					iTotal += cVal2;
+					cVal = -cVal;
+					i++;
+				}				
 			}
 			
 			iTotal += cVal;
