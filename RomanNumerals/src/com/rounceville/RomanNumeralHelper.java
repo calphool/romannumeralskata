@@ -8,7 +8,6 @@ public class RomanNumeralHelper {
 
 
 	public Object toInt(String inp) throws ParseException {
-
 		int iTotal = 0;
 		inp = inp.toUpperCase();
 		
@@ -53,6 +52,9 @@ public class RomanNumeralHelper {
 			throw new ParseException("Only 1 L allowed in a row.",-1);
 		if(Pattern.matches(".*DD.*", inp))
 			throw new ParseException("Only 1 D allowed in a row.",-1);
+		
+		// this regex was modified from the one located here:
+		// http://stackoverflow.com/questions/267399/how-do-you-match-only-valid-roman-numerals-with-a-regular-expression
 		if(!Pattern.matches("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$",inp)) 
 			throw new ParseException("Unknown problem with your roman numeral input: " + inp, -1);
 	}
@@ -74,5 +76,25 @@ public class RomanNumeralHelper {
         	return 1;
         
         throw new ParseException("Unknown roman numeral: " + c, -1);
+	}
+	
+
+	public String toNumeral(int i) {
+		if(i == 1000)
+			return "M";
+		if(i == 500)
+			return "D";
+		if(i == 100)
+			return "C";
+		if(i == 50)
+			return "L";
+		if(i == 10)
+			return "X";
+		if(i == 5)
+			return "V";
+		if(i == 1)
+			return "I";
+		
+		return null;
 	}
 }

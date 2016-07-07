@@ -126,4 +126,15 @@ public class RomanNumeralsTest {
 		assertEquals(rnh.toInt("MLXVI"), 1066);
 		assertEquals(rnh.toInt("MCMLXXXIX"), 1989);
 	}
+	
+	@Test
+	public void testPrimitiveIntToLetter() {
+		assertEquals(rnh.toNumeral(1000), "M");
+		assertEquals(rnh.toNumeral(500), "D");
+		assertEquals(rnh.toNumeral(100), "C");
+		assertEquals(rnh.toNumeral(50), "L");
+		assertEquals(rnh.toNumeral(10), "X");
+		assertEquals(rnh.toNumeral(5), "V");
+		assertEquals(rnh.toNumeral(1), "I");
+	}
 }
