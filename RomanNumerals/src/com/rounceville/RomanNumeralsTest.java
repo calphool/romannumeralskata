@@ -139,11 +139,19 @@ public class RomanNumeralsTest {
 	}
 	
 	@Test
-	public void testGivenFeature2TestCases() throws ParseException {
+	public void testGivenFeature2TestCases() {
 		assertEquals(rnh.toNumeral(1), "I");
 		assertEquals(rnh.toNumeral(3), "III");
 		assertEquals(rnh.toNumeral(9), "IX");
 		assertEquals(rnh.toNumeral(1066), "MLXVI");
 		assertEquals(rnh.toNumeral(1989), "MCMLXXXIX");
+	}
+	
+	@Test
+	public void testExhaustively() throws ParseException {
+		for(int i=1;i<4000;i++) {
+			String sNumeral = rnh.toNumeral(i);
+			assertEquals(i, rnh.toInt(sNumeral));
+		}
 	}
 }
