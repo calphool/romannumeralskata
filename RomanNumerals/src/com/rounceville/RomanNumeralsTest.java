@@ -70,5 +70,28 @@ public class RomanNumeralsTest {
 		assertNotEquals(rnh.toInt("MIIII"),1004);
 	}
 	
+	@Test
+	public void testRepeatingVFails() throws ParseException {
+		exception.expect(ParseException.class);
+		assertNotEquals(rnh.toInt("VV"),10);
+	}
+
+	@Test
+	public void testRepeatingLFails() throws ParseException {
+		exception.expect(ParseException.class);
+		assertNotEquals(rnh.toInt("LL"),100);
+	}
+
+	@Test
+	public void testRepeatingDFails() throws ParseException {
+		exception.expect(ParseException.class);
+		assertNotEquals(rnh.toInt("DD"),1000);
+	}
+	
+	@Test
+	public void testRepeatingMDDFails() throws ParseException {
+		exception.expect(ParseException.class);
+		assertNotEquals(rnh.toInt("MDD"),2000);
+	}
 
 }

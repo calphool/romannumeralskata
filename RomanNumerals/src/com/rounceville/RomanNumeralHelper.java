@@ -31,6 +31,13 @@ public class RomanNumeralHelper {
 			throw new ParseException("Only 3 C's allowed in a row.",-1);
 		if(Pattern.matches(".*MMMM.*", inp))
 			throw new ParseException("Only 3 M's allowed in a row.",-1);
+		if(Pattern.matches(".*VV.*", inp))
+			throw new ParseException("Only 1 V allowed in a row.",-1);
+		if(Pattern.matches(".*LL.*", inp))
+			throw new ParseException("Only 1 L allowed in a row.",-1);
+		if(Pattern.matches(".*DD.*", inp))
+			throw new ParseException("Only 1 D allowed in a row.",-1);
+
 	}
 
 	private int charToInt(char c) throws ParseException {
