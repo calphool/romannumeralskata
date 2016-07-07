@@ -15,8 +15,19 @@ public class RomanNumeralHelper {
 		validateRomanNumeralInput(inp);
 		
 		for(int i=0; i < inp.length(); i++) {
-			char c = inp.charAt(i);
-			iTotal+= charToInt(c);
+			int cVal = charToInt(inp.charAt(i));
+			if(i < inp.length() - 1) {
+				int cVal2 = charToInt(inp.charAt(i+1));
+				if(cVal != 5 && cVal != 50 && cVal != 500) {
+					if(cVal2 > cVal) {
+						iTotal += cVal2;
+						cVal = -cVal;
+						i++;
+					}
+				}
+			}
+			
+			iTotal += cVal;
 		}
 		
 		return new Integer(iTotal);

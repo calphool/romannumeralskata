@@ -93,5 +93,14 @@ public class RomanNumeralsTest {
 		exception.expect(ParseException.class);
 		assertNotEquals(rnh.toInt("MDD"),2000);
 	}
+	
+	@Test
+	public void testIVandIXandXLandXCandCDandCM() throws ParseException {
+		assertEquals(rnh.toInt("IV"), 4);
+		assertEquals(rnh.toInt("IX"), 9);
+		assertEquals(rnh.toInt("XC"), 90);
+		assertEquals(rnh.toInt("CD"), 400);
+		assertEquals(rnh.toInt("CM"), 900);
+	}
 
 }
