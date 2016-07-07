@@ -105,6 +105,7 @@ public class RomanNumeralsTest {
 
 	@Test
 	public void testILandICandIDandIM() throws ParseException {
+		exception.expect(ParseException.class);
 		assertNotEquals(rnh.toInt("IL"), 49);
 		assertNotEquals(rnh.toInt("IC"), 99);
 		assertNotEquals(rnh.toInt("ID"), 499);
@@ -113,7 +114,16 @@ public class RomanNumeralsTest {
 
 	@Test
 	public void testNoDoubleSubtractions() throws ParseException {
+		exception.expect(ParseException.class);
 		assertNotEquals(rnh.toInt("XXC"), 80);
 	}
 
+	@Test
+	public void testGivenFeature1TestCases() throws ParseException {
+		assertEquals(rnh.toInt("I"), 1);
+		assertEquals(rnh.toInt("III"), 3);
+		assertEquals(rnh.toInt("IX"), 9);
+		assertEquals(rnh.toInt("MLXVI"), 1066);
+		assertEquals(rnh.toInt("MCMLXXXIX"), 1989);
+	}
 }

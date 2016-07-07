@@ -53,7 +53,8 @@ public class RomanNumeralHelper {
 			throw new ParseException("Only 1 L allowed in a row.",-1);
 		if(Pattern.matches(".*DD.*", inp))
 			throw new ParseException("Only 1 D allowed in a row.",-1);
-
+		if(!Pattern.matches("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$",inp)) 
+			throw new ParseException("Unknown problem with your roman numeral input: " + inp, -1);
 	}
 
 	private int charToInt(char c) throws ParseException {
