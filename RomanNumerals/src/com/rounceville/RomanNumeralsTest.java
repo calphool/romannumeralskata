@@ -111,4 +111,9 @@ public class RomanNumeralsTest {
 		assertNotEquals(rnh.toInt("IM"), 999);
 	}
 
+	@Test
+	public void testNoDoubleSubtractions() throws ParseException {
+		assertNotEquals(rnh.toInt("XXC"), 80);
+	}
+
 }
