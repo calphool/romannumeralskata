@@ -137,4 +137,13 @@ public class RomanNumeralsTest {
 		assertEquals(rnh.toNumeral(5), "V");
 		assertEquals(rnh.toNumeral(1), "I");
 	}
+	
+	@Test
+	public void testGivenFeature2TestCases() throws ParseException {
+		assertEquals(rnh.toNumeral(1), "I");
+		assertEquals(rnh.toNumeral(3), "III");
+		assertEquals(rnh.toNumeral(9), "IX");
+		assertEquals(rnh.toNumeral(1066), "MLXVI");
+		assertEquals(rnh.toNumeral(1989), "MCMLXXXIX");
+	}
 }

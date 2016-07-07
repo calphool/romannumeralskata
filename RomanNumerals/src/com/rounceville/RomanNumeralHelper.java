@@ -80,21 +80,61 @@ public class RomanNumeralHelper {
 	
 
 	public String toNumeral(int i) {
-		if(i == 1000)
-			return "M";
-		if(i == 500)
-			return "D";
-		if(i == 100)
-			return "C";
-		if(i == 50)
-			return "L";
-		if(i == 10)
-			return "X";
-		if(i == 5)
-			return "V";
-		if(i == 1)
-			return "I";
+		StringBuilder sb = new StringBuilder();
 		
-		return null;
+		while(i >= 1000) {
+			sb.append("M");
+			i-=1000;
+		}
+		while(i >= 900) {
+		    sb.append("CM");
+		    i-=900;
+		}
+		while(i >= 500) {
+			sb.append("D");
+			i-=500;
+		}
+		while(i >= 400) {
+			sb.append("CD");
+			i-=400;
+		}
+		while(i >= 100) {
+			sb.append("C");
+			i-=100;
+		}
+		while(i >= 90) {
+			sb.append("XC");
+			i-=90;
+		}
+		while(i >= 50) {
+			sb.append("L");
+			i-=50;
+		}
+		while(i >= 40) {
+			sb.append("XL");
+			i-=40;
+		}
+		while(i >= 10) {
+			sb.append("X");
+			i-=10;
+		}
+		while(i >= 9) {
+			sb.append("IX");
+			i-=9;
+		}
+		while(i >= 5) {
+			sb.append("V");
+			i-=5;
+		}
+		while(i >= 4) {
+			sb.append("IV");
+			i-=4;
+		}
+		while(i >= 1) {
+			sb.append("I");
+			i--;
+		}
+		
+		return sb.toString();
 	}
 }
