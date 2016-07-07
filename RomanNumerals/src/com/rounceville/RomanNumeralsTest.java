@@ -22,7 +22,7 @@ public class RomanNumeralsTest {
 	}
 	
 	@Test
-	public void testPrimitivesLetterToInt() throws Exception {
+	public void testPrimitivesLetterToInt() throws ParseException {
 		assertEquals(rnh.toInt("M"), 1000);
 		assertEquals(rnh.toInt("D"), 500);
 		assertEquals(rnh.toInt("C"), 100);
