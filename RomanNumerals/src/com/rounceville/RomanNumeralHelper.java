@@ -60,6 +60,10 @@ public class RomanNumeralHelper {
 	
 
 	public String toNumeral(int i) {
+		if(i < 1 || i > 3999)
+			throw new IllegalArgumentException("Values must be in the range 1 - 3999 inclusive.");
+		
+		
 		StringBuilder sb = new StringBuilder();
 		
 		Queue<AbstractMap.SimpleEntry<Integer,String>> q = getRomanNumeralValueQueue();

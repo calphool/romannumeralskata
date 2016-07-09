@@ -148,10 +148,32 @@ public class RomanNumeralsTest {
 	}
 	
 	@Test
-	public void testExhaustively() throws ParseException {
+	public void testNegativeNumbers() throws IllegalArgumentException {
+		exception.expect(IllegalArgumentException.class);
+		rnh.toNumeral(-1);
+	}
+	
+	@Test 
+	public void testZeroNumber() throws IllegalArgumentException {
+		exception.expect(IllegalArgumentException.class);
+		rnh.toNumeral(0);
+	}
+	
+	@Test
+	public void testLargeNumber() throws IllegalArgumentException {
+		exception.expect(IllegalArgumentException.class);
+		rnh.toNumeral(4000);
+	}
+
+	
+	@Test
+	public void testCrossCheckExhaustively() throws ParseException {
 		for(int i=1;i<4000;i++) {
 			String sNumeral = rnh.toNumeral(i);
 			assertEquals(i, rnh.toInt(sNumeral));
 		}
 	}
+	
+	
+	
 }
