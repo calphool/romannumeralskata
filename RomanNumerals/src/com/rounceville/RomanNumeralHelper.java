@@ -99,7 +99,7 @@ public class RomanNumeralHelper {
 	 *
 	 * @return      String
 	 */	
-	public String toRomanNumeral(int iArabicNumber) {
+	public String toRomanNumeral(int iArabicNumber)  {
 		if(iArabicNumber < 1 || iArabicNumber > 3999)
 			throw new IllegalArgumentException("Values must be in the range 1 - 3999 inclusive.");
 		
