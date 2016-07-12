@@ -47,6 +47,16 @@ public class RomanNumeralHelper {
 		
 		Queue<AbstractMap.SimpleEntry<Integer,String>> qRomanAndArabic = getRomanNumeralValueQueue();
 	
+		//TODO: find a better way to do this if I have enough time...
+		//      This works, but I'm using the wrong datatype for sRomanInput at this point
+		//      I'm "abusing" a string by treating it like a queue and pulling character nodes 
+		//      from the front of it.  It would be better represented as a true queue chopped up into
+		//      primitives for nodes (the trick seems to be figuring out the primitive sizes, since they
+		//      vary based on location -- just need to dive in and try something, and then refactor 
+		//      with time -- maybe make an "internal" representation of Roman primitives that uses 
+		//      single characters for every value (for example IX would become ! or something), 
+		//      then build an internal-to-external conversion both directions?
+		
 		while(sRomanInput.length() > 0) {                                   	// while we still have a string to work with
 			SimpleEntry<Integer, String> qEntry = qRomanAndArabic.poll();		// pull queue item off
 			String sNode = qEntry.getValue();									// what letter are we on?
