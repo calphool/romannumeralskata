@@ -2,6 +2,12 @@ package com.rounceville;
 
 public class RomanNumeralList {
 
+	
+	/**
+	 * Return a string table of arabic and roman numerals (generated from Excel)
+	 *
+	 * @return      String
+	 */	
 	public static String getFullRomanNumeralTable() {
 		String sListOneThousand = new StringBuilder()
 				.append("1:I\n")
@@ -4014,7 +4020,7 @@ public class RomanNumeralList {
 				.append("3999:MMMCMXCIX\n")
 				.toString();
 		
-		// this silliness is done to prevent code linter from bombing in editor
+		// this silliness is done to prevent code linter from bombing in Eclipse
 		String sList = new StringBuffer()
 				.append(sListOneThousand)
 				.append(sListTwoThousand)

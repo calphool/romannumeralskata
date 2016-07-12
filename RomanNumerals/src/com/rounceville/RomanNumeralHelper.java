@@ -5,7 +5,7 @@ import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.regex.*;
+import java.util.regex.Pattern;
 
 public class RomanNumeralHelper {
 
@@ -34,7 +34,11 @@ public class RomanNumeralHelper {
 		return q;
 	}
 
-	
+	/**
+	 * Convert a Roman Numeral string to an Integer
+	 *
+	 * @return      An Integer object
+	 */	
 	public Object toArabic(String sRomanInput) throws ParseException {
 		int iReturnValue = 0;
 		sRomanInput = sRomanInput.toUpperCase();
@@ -56,7 +60,12 @@ public class RomanNumeralHelper {
 
 		return new Integer(iReturnValue);
 	}
-	
+
+	/**
+	 * Throw an exception if the string passed isn't a valid Roman Numeral
+	 *
+	 * @return      void
+	 */	
 	private void validateRomanNumeralInput(String sStringToTest) throws ParseException {
 		// originally started building up a list of regular expressions here...
 		// decided it would be better to find a comprehensive one
@@ -75,7 +84,11 @@ public class RomanNumeralHelper {
 	}
 	
 	
-
+	/**
+	 * Convert an int to a Roman Numeral string
+	 *
+	 * @return      String
+	 */	
 	public String toRomanNumeral(int iArabicNumber) {
 		if(iArabicNumber < 1 || iArabicNumber > 3999)
 			throw new IllegalArgumentException("Values must be in the range 1 - 3999 inclusive.");

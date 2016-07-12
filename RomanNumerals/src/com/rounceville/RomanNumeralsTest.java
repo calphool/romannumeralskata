@@ -22,6 +22,11 @@ public class RomanNumeralsTest {
 	}
 	
 	
+	/**
+	 * Feature 1 - Assert that Roman primitives convert properly to int
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testPrimitivesLetterToInt() throws ParseException {
 		// prove primitives work
@@ -34,7 +39,12 @@ public class RomanNumeralsTest {
 		assertEquals(rnh.toArabic("I"), 1);
 	}
 	
-	
+
+	/**
+	 * Feature 1 - Assert that Roman triples convert properly to int
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testTripleRepeats() throws ParseException {
 		// prove triples work
@@ -45,6 +55,11 @@ public class RomanNumeralsTest {
 	}
 	
 	
+	/**
+	 * Feature 1 - Assert that Roman quadruple throws exception
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testQuadrupleIIIIRepeatFails() throws ParseException {
 		// No quadruples 
@@ -53,6 +68,11 @@ public class RomanNumeralsTest {
 	}
 	
 	
+	/**
+	 * Feature 1 - Assert that Roman quadruple X throws exception
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testQuadrupleXXXXRepeatFails() throws ParseException {
 		// No quadruples 
@@ -61,6 +81,11 @@ public class RomanNumeralsTest {
 	}
 	
 	
+	/**
+	 * Feature 1 - Assert that Roman quadruple C throws exception
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testQuadrupleCCCCRepeatFails() throws ParseException {
 		// No quadruples 
@@ -68,7 +93,12 @@ public class RomanNumeralsTest {
 		assertNotEquals(rnh.toArabic("CCCC"),400);
 	}
 	
-	
+
+	/**
+	 * Feature 1 - Assert that Roman quadruple M throws exception
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testQuadrupleMMMMRepeatFails() throws ParseException {
 		// No quadruples 
@@ -77,6 +107,11 @@ public class RomanNumeralsTest {
 	}
 
 	
+	/**
+	 * Feature 1 - Assert that Roman quadruple I throws exception
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testQuadrupleMIIIIRepeatFails() throws ParseException {
 		// No quadruples 
@@ -85,6 +120,11 @@ public class RomanNumeralsTest {
 	}
 	
 	
+	/**
+	 * Feature 1 - Assert that repeating V throws exception
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testRepeatingVFails() throws ParseException {
 		// V's cannot be doubled
@@ -92,7 +132,12 @@ public class RomanNumeralsTest {
 		assertNotEquals(rnh.toArabic("VV"),10);
 	}
 
-	
+
+	/**
+	 * Feature 1 - Assert that repeating L throws exception
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testRepeatingLFails() throws ParseException {
 		// L's cannot be doubled
@@ -101,6 +146,11 @@ public class RomanNumeralsTest {
 	}
 
 	
+	/**
+	 * Feature 1 - Assert that repeating D throws exception
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testRepeatingDFails() throws ParseException {
 		// D's cannot be doubled
@@ -108,7 +158,11 @@ public class RomanNumeralsTest {
 		assertNotEquals(rnh.toArabic("DD"),1000);
 	}
 	
-	
+	/**
+	 * Feature 1 - Assert that repeating D throws exception even if preceded by a larger primitive
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testRepeatingMDDFails() throws ParseException {
 		// D's cannot be doubled
@@ -117,6 +171,11 @@ public class RomanNumeralsTest {
 	}
 	
 	
+	/**
+	 * Feature 1 - Assert some of the basic subtractions
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testIVandIXandXLandXCandCDandCM() throws ParseException {
 		// specific valid tests for subtraction
@@ -128,6 +187,11 @@ public class RomanNumeralsTest {
 	}
 
 	
+	/**
+	 * Feature 1 - Assert that rules related to "two steps away" apply and throw exception if violated
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testILandICandIDandIM() throws ParseException {
 		// specific invalid tests (I is too far away from L to subtract for example)
@@ -138,6 +202,12 @@ public class RomanNumeralsTest {
 		assertNotEquals(rnh.toArabic("IM"), 999);
 	}
 
+	
+	/**
+	 * Feature 1 - Assert that double subtraction throws exception
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testNoDoubleSubtractions() throws ParseException {
 		// double subtraction isn't allowed
@@ -146,6 +216,11 @@ public class RomanNumeralsTest {
 	}
 
 	
+	/**
+	 * Feature 1 - Assert all the test cases specified in Feature 1
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testGivenFeature1TestCases() throws ParseException {
 		// these are required tests for feature 1
@@ -156,7 +231,12 @@ public class RomanNumeralsTest {
 		assertEquals(rnh.toArabic("MCMLXXXIX"), 1989);
 	}
 	
-	
+
+	/**
+	 * Feature 2 - assert primitives
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testPrimitiveIntToLetter() {
 		// these are primitive tests
@@ -170,6 +250,11 @@ public class RomanNumeralsTest {
 	}
 	
 	
+	/**
+	 * Feature 2 - assert specifically specified test cases
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testGivenFeature2TestCases() {
 		// these were required test cases for feature 2
@@ -181,14 +266,24 @@ public class RomanNumeralsTest {
 	}
 	
 	
+	/**
+	 * Kata feedback - test for negatives
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testNegativeNumbers() throws IllegalArgumentException {
 		// no negative numbers
 		exception.expect(IllegalArgumentException.class);
 		rnh.toRomanNumeral(-1);
 	}
+
 	
-	
+	/**
+	 * Kata feedback - test for zero
+	 *
+	 * @return      void
+	 */	
 	@Test 
 	public void testZeroNumber() throws IllegalArgumentException {
 		// no zeros
@@ -197,6 +292,11 @@ public class RomanNumeralsTest {
 	}
 	
 	
+	/**
+	 * Additional test along the same lines as the kata feedback - make sure >3999 throws exception
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testLargeNumber() throws IllegalArgumentException {
 		// no numbers larger than 3999
@@ -205,6 +305,12 @@ public class RomanNumeralsTest {
 	}
 
 	
+	/**
+	 * Additional test along the same lines as the kata feedback - used Excel to generate table of arabic <--> roman numerals
+	 * exhaustively tests both directions
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testLessControversialExhaustiveTest() throws ParseException {
 		// list generated from excel... since the range is limited (1-3999), we can 
@@ -221,7 +327,11 @@ public class RomanNumeralsTest {
 		}
 	}
 	
-	
+	/**
+	 * kata feedback - this test not "exhaustive enough" (hence the spreadsheet based test above)
+	 *
+	 * @return      void
+	 */	
 	@Test
 	public void testCrossCheckExhaustively() throws ParseException {
 		// run every number through the helper class (arabic int to roman and roman back to arabic int)
